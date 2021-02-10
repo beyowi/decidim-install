@@ -31,9 +31,11 @@ echo -e "***********************************************************************
 # Config vars & default values (use -h to view options)
 ########################################################
 
-RUBY_VERSION="2.7.2"
-DECIDIM_VERSION="0.23.1"
+RUBY_VERSION="2.6.6"
+DECIDIM_VERSION="0.22.0"
 BUNDLER_VERSION="2.1.4"
+DECIDIM_REPO="https://github.com/beyowi/decidim.git"
+DECIDIM_BRANCH="release/0.22-stable"
 VERBOSE=
 CONFIRM=1
 STEPS=("check" "prepare" "rbenv" "gems" "decidim" "postgres" "create" "servers")
@@ -266,8 +268,10 @@ step_gems() {
 		red "gem home failed! $(gem env home)!"
 		exit 1
 	fi
-	info "Installing Decidim gem"
-	gem install decidim -v $DECIDIM_VERSION
+	info "Installing Decidim gem using repo and branch"
+	#gem install decidim -v $DECIDIM_VERSION
+	gem install specific_install
+	gem specific_install -l $DECIDIM_REPO -b $DECIDIM_BRANCH
 }
 
 FOLDER=
