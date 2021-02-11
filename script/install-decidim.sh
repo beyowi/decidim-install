@@ -304,7 +304,7 @@ step_decidim() {
 		yellow "$INSTALL_FOLDER already exists, trying to install gems anyway"
 	else
 		gem install bundler --version $BUNDLER_VERSION
-		decidim "$INSTALL_FOLDER"
+		decidim "$INSTALL_FOLDER" --branch="$DECIDIM_BRANCH"
 	fi
 
 	if [ ! -z "$CAPISTRANO" ]; then

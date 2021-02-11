@@ -6,7 +6,7 @@ Decidim installation script
 `install-decidim.sh` is a script that automates all the steps described in this guide.
 
 - It is indented to be idempotent, meaning that it can be run safely many times in case of failure.
-- It installs Decidim up to the point that it is up and running as a website. It does not configure extra services (such as SMTP or Geolocation). 
+- It installs Decidim up to the point that it is up and running as a website. It does not configure extra services (such as SMTP or Geolocation).
 - It does not configure SSL.
 - It does not configure any firewall (ie `ufw`)
 - It uses Passenger with Nginx as a proxy and `active_job_active_record` as a backend for job queue processing.
@@ -38,7 +38,7 @@ Final result in Vagrant:
 Copy the script somewhere and run it:
 
 ```
-wget -O install-decidim.sh https://raw.githubusercontent.com/Platoniq/decidim-install/master/script/install-decidim.sh
+wget -O install-decidim.sh https://raw.githubusercontent.com/Beyowi/decidim-install/release/0.22-stable/script/install-decidim.sh
 chmod +x install-decidim.sh
 ./install-decidim.sh -h
 ```
@@ -102,7 +102,7 @@ By default, it installs the following gems:
 
 and generates a these files extra:
 
-- `~/decidim-app/config/application.yml` default values for the database. 
+- `~/decidim-app/config/application.yml` default values for the database.
 - `~/decidim-app/bin/delayed_job_cron.sh` script to ensure active_job is running as a backgroud process
 - `/etc/nginx/sites-available/decidim.conf` minimal ngnix configuration for Decidim
 - `/etc/nginx/conf.d/mod-http-passenger.conf` with the configuration for passenger in Nginx.
@@ -120,7 +120,7 @@ nano my-decidim/config/application.yml
 
 ## Capistrano install mode
 
-It is possible to install Decidim in order let it ready for a Capistrano style deployment. To do that just use the option `-c`. 
+It is possible to install Decidim in order let it ready for a Capistrano style deployment. To do that just use the option `-c`.
 
 With this option, the installation will be distributed in 3 folders created after the specified route. For instance, by running:
 
